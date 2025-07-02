@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HBD Nandaaaa by Mas Cus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      .audio-fixed {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 999;
+        background-color: #facc15;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .audio-fixed audio {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      background-image: url(https://images.unsplash.com/photo-1530273973427-22351773250c?q=80&w=1470&auto=format&fit=crop);
+    "
+    class="flex justify-center items-center min-h-screen"
+  >
+    <!-- 🎵 Audio Player -->
+    <div class="audio-fixed">
+      <audio id="audioPlayer" controls loop>
+        <source src="Selamat Ulang Tahun [Jamrud].mp3" type="audio/mpeg" />
+        Browser kamu tidak mendukung audio.
+      </audio>
+    </div>
+
+    <!-- 🎁 Kartu Ucapan -->
+    <div
+      class="bg-white border px-8 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__backInDown w-80"
+      id="kartu"
+    >
+      <h1 class="text-3xl">Happy Birthday</h1>
+      <h1
+        class="text-4xl text-blue-500 font-bold animate__animated animate__pulse animate__infinite"
+      >
+        Nanda Rifama
+      </h1>
+      <img
+        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM293czUzc2I3b3hoZ2F3OGcya29nbWNweHB4MGZ6anBvOWRiZXZoMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wGKrkvHxZT6PVpw635/giphy.gif"
+        alt="Kue Ulang Tahun"
+        class="mx-auto my-4 w-32"
+      />
+      <button
+        class="p-2 bg-blue-600 text-white rounded mt-5 hover:bg-blue-900 transition ease-in w-full animate__animated animate__delay-1s animate__tada"
+        onclick="ubahIsi()"
+        id="tombol"
+      >
+        Klik Sini Nan!
+      </button>
+    </div>
+
+    <!-- 🎊 Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+
+      let tahap = 0;
+      function ubahIsi() {
+        let kartu = document.getElementById("kartu");
+        let tombol = document.getElementById("tombol");
+        let audio = document.getElementById("audioPlayer");
+
+        // Mulai putar audio saat pertama kali tombol diklik
+        if (tahap === 0) {
+          audio.play().catch(function (err) {
+            console.log("Gagal memutar audio:", err);
+          });
+        }
+
+        tahap++;
+
+        if (tahap === 1) {
+          kartu.innerHTML = `
+            <h1 class="font-semibold animate__animated animate__zoomIn">
+              Selamat ulang tahun Nanda! 🌸<br />
+              Semoga di bulan baru esok, setiap harapan yang kamu lantunkan dalam doa, segera menemukan jalannya menuju nyata.
+            </h1>
+            <button
+              class="p-2 bg-blue-600 text-white rounded mt-5 hover:bg-blue-900 transition ease-in w-full animate__animated animate__fadeIn"
+              onclick="ubahIsi()"
+              id="tombol"
+            >
+              Lanjut Lagi Nan
+            </button>
+          `;
+        } else if (tahap === 2) {
+          kartu.innerHTML = `
+            <h1 class="font-semibold animate__animated animate__zoomIn">
+              Semoga satu per satu doamu dikabulkan dengan cara terbaik, di waktu terbaik. Jadilah pribadi yang kuat dan penuh keceriaan! 🎂
+            </h1>
+            <button
+              class="p-2 bg-blue-600 text-white rounded mt-5 hover:bg-blue-900 transition ease-in w-full animate__animated animate__fadeIn"
+              onclick="ubahIsi()"
+              id="tombol"
+            >
+              Terakhir Nan!
+            </button>
+          `;
+        } else if (tahap === 3) {
+          kartu.innerHTML = `
+            <h1 class="font-semibold animate__animated animate__zoomIn">
+              Teruslah tumbuh menjadi pribadi yang hangat dan bermakna. Tetap Optimis, Nan! 🎁💖
+            </h1>
+            <h2 class="mt-3 text-blue-500 animate__animated animate__fadeIn">- Dari: Mas Husnul</h2>
+            <button
+              class="p-2 bg-gray-700 text-white rounded mt-5 hover:bg-black transition ease-in w-full animate__animated animate__fadeIn"
+              onclick="location.reload()"
+            >
+              Tutup
+            </button>
+          `;
+        }
+      }
+    </script>
+  </body>
+</html>
