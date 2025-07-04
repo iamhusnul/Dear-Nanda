@@ -10,6 +10,22 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <style>
+ @keyframes float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(3deg);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+  .floaty {
+    animation: float 3s ease-in-out infinite;
+  }
+
       .audio-fixed {
         position: fixed;
         top: 20px;
@@ -25,6 +41,7 @@
       }
     </style>
   </head>
+
   <body
     style="
       background-image: url(https://images.unsplash.com/photo-1530273973427-22351773250c?q=80&w=1470&auto=format&fit=crop);
@@ -43,7 +60,7 @@
     <div
       class="bg-white border px-8 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__backInDown w-80"
       id="kartu"
-    >
+    > 
       <h1 class="text-2xl"><b>Baarakallahu Fii 'Umrik(i)</b></h1>
       <h1
         class="text-4xl text-blue-500 font-bold animate__animated animate__pulse animate__infinite"
@@ -130,11 +147,27 @@
           `;
         } else if (tahap === 4) {
           kartu.innerHTML = `
+          <!-- ☕ Ikon Es Kopi di Pojok Kartu -->
+<!-- Ikon Es Kopi Mengambang -->
+<div
+  id="kopiUtama"
+  class="floaty cursor-pointer relative"
+  style="width: 40px;"
+  onclick="munculkanKopiSekitar(this)"
+>
+  <img
+    src="ice2.png"
+    alt="Es Kopi"
+    class="w-full"
+  />
+</div>
+
+
             <h1 class="font-semibold animate__animated animate__zoomIn">
               Scan Barqode Buat Ngopi NAN!!
             </h1>
             <img
-        src="dana kaget.jpg"
+        src="kulu.jpg"
         alt="Kue Ulang Tahun"
         class="mx-auto my-4 w-32"
       />
